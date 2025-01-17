@@ -104,7 +104,7 @@ class OCRProcessor(models.Model):
             str: Texte extrait de l'image.
         """
         # Configurez l'API Gemini
-        genai.configure(api_key="AIzaSyDaP8ZOx1C65sCTHuT-7cexhwfl2xf71lQ")
+        genai.configure(api_key="key")
 
         # Chargez le modèle Gemini
         model = genai.GenerativeModel("gemini-1.5-flash")
