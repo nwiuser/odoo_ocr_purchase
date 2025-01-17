@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Vue de formulaire pour la commande d'achat avec OCR -->
+    <record id="view_purchase_order_form_ocr" model="ir.ui.view">
+        <field name="name">purchase.order.form.ocr</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Ajout du bouton "Traiter via OCR" dans l'en-tête -->
+            <xpath expr="//header" position="inside">
+                <button name="action_traiter_ocr" type="object" string="OCR" class="btn-primary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vue du Wizard pour télécharger la facture -->
+    <record id="view_purchase_order_ocr_wizard_form" model="ir.ui.view">
+        <field name="name">purchase.order.ocr.wizard.form</field>
+        <field name="model">purchase.order.ocr.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Traitement OCR de la Facture">
+                <group>
+                    <field name="invoice_file" widget="binary"/>
+                </group>
+                <footer>
+                    <button string="Valider" type="object" name="process_document" class="btn-primary" />
+                    <button string="Annuler" type="object" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
